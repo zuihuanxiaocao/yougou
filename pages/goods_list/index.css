@@ -1,0 +1,13 @@
+.goods-list {
+  background-color: #eee;
+  padding: 25rpx 20rpx;
+}
+.goods-list-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 60rpx;
+  background-color: #fff;
+  border-radius: 5rpx;
+}

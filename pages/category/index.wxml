@@ -1,0 +1,58 @@
+<!-- 搜索框组件 -->
+<!-- <search /> -->
+<!-- 分类部份 -->
+<!-- <view class="category-list"> -->
+  <!-- 左侧导航条 -->
+  <!-- <scroll-view class="list-left" scroll-y="true">
+    <block wx:for="{{ categorys }}" wx:key="cat_id">
+      <view  bind:tap="changeIndex" data-index="{{index}}" class="cat-nav {{ index === activeIndex ? 'on' : '' }}">
+        {{ item.cat_name }}
+      </view>
+    </block>
+  </scroll-view> -->
+  <!-- 右侧详情 -->
+  <!-- <scroll-view class="list-right" scroll-y="true">
+    <block wx:for="{{ cateRight }}" wx:key="cat_id">
+      <view class="list-right-title">{{ item.cat_name }}</view>
+      <view class="list-right-body">
+        <block wx:for="{{ item.children }}" wx:key="cat_id" wx:for-item="item2">
+          <navigator class="list-right-item1" url="/pages/goods_list/index?query={{ item2.cat_name }}&cid={{ item2.cat_id }}">
+            <image lazy-load mode="widthFix" class="list-right-img" src="{{ item2.cat_icon }}" />
+            <text class="list-right-item2">{{ item2.cat_name }}</text>
+          </navigator>
+        </block>
+      </view>
+    </block>
+  </scroll-view>
+</view> -->
+
+<!-- 调用自定义的搜索组件 -->
+<search />
+<view class="cate">
+    <!-- scroll-view 垂直滚动需要设高度 -->
+    <!-- 左边 -->
+    <scroll-view scroll-y class="cate-left">
+        <block wx:for="{{ cateArr }}" wx:key="cat_id">
+            <view bind:tap="changeIndex" data-index="{{index}}" class="cate-left-item {{ index === activeIndex ? 'on' : '' }}">
+                {{ item.cat_name }}
+            </view>
+        </block>
+    </scroll-view>
+    <!-- 右边 -->
+    <scroll-view scroll-y class="cate-right" scroll-top="{{ scrollTop }}">
+        <!-- 外层嵌套一级分类 -->
+        <block wx:for="{{ cateRight }}" wx:key="cat_id">
+            <view class="cate-right-title"> {{ item.cat_name }} </view>
+        <view class="cate-right-body" >
+            <!-- 里层嵌套商品分类 -->
+            <block wx:for="{{item.children}}" wx:for-item="item2" wx:key="cat_id">
+                <!-- !!! 在跳转页面的时候，把 query (关键词) 和 cid (分类id) 也进行传递到列表页中 -->
+                <navigator class="cate-right-item" url="/pages/goods_list/index?query={{item2.cat_name}}&cid={{ item2.cat_id }}">
+                    <image lazy-load mode="widthFix" class="cate-right-item-image" src="{{ item2.cat_icon }}" />
+                    <text class="cate-right-item-text">{{ item2.cat_name }}</text>
+                </navigator>
+            </block>
+        </view>
+        </block>
+    </scroll-view>
+</view>

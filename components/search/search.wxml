@@ -1,0 +1,7 @@
+<!-- 搜索框 -->
+<navigator class="search">
+  <view class="search-inpu">
+    <icon  class="search-icon" type="search" color="#ccc"></icon>
+    <text class="search-text">搜索</text>
+  </view>
+</navigator>

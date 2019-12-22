@@ -1,0 +1,54 @@
+/* 轮播图部份样式  */
+.lunbotu {
+  height: 340rpx;
+  /* width:750rpx; */
+}
+.lunbotu-img{
+  width:100%;
+}
+/* 菜单导航部份样式开始  */
+.classify-nav {
+  display: flex;
+  /* 设置子项平分父项空间 */
+  justify-content: space-around;
+}
+.nav-class {
+  margin: 30rpx 0;
+}
+.nav-img {
+  width: 95rpx;
+  height: 95rpx;
+}
+/* 菜单导航部份样式结束  */
+/* 楼层详情样式开始 */
+.floor-title-img {
+  width:750rpx;
+}
+.floor-body {
+  margin-left: 12rpx;
+}
+.floor-body navigator {
+  float: left;
+  margin-right: 12rpx;
+}
+.floor-body navigator:nth-child(1) image {
+  height: 386rpx;
+}
+.floor-body image {
+  width: 232rpx;
+  height: 188rpx;
+}
+.to-top{
+  width:80rpx;
+  height: 80rpx;
+  background-color:#b2e0efb6; 
+  position: fixed;
+  right: 20rpx;
+  bottom:20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 50%;
+}
+

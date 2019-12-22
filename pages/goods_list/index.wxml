@@ -1,0 +1,14 @@
+<!-- 头部搜索框 -->
+<view class="goods-list">
+    <!-- <view class="iconfont iconsearch">{{inputValue}}
+     <input class="" placeholder="小米"/>
+    </view> -->
+
+    <view class="goods-list-search">{{inputValue}}
+        <input class="goods-list-inp" placeholder="搜索"/>
+       </view>
+ </view>
+<!-- 导航条 -->
+
+
+<!-- 详情类 -->

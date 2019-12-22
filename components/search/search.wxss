@@ -1,0 +1,21 @@
+/*头部搜索样式 */
+.search {
+  /* width: 750rpx; */
+  background-color: #eb4450;
+  padding: 20rpx 18rpx;
+}
+
+.search-inpu {
+  background-color: white;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30rpx;
+}
+.search-icon{
+margin-right: 10rpx;
+}
+.search-text{
+color: #ccc;
+}

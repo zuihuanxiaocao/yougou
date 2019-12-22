@@ -1,0 +1,36 @@
+<!-- 搜索框组件 -->
+<search />
+<!-- 轮播图 -->
+<swiper class="lunbotu" autoplay="true" indicator-dots="true" indicator-active-color="#fff" circular>
+  <block wx:for="{{ swiperImgs }}" wx:key="goods_id">
+    <swiper-item>
+      <navigator url="{{ item.navigator_url }}">
+        <image src="{{ item.image_src }}" class="lunbotu-img"></image>
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 分类导航 -->
+<view class="classify-nav">
+  <view class="nav-class" wx:for="{{ navImgs }}" wx:key="name">
+    <image src="{{ item.image_src }}" class="nav-img"></image>
+  </view>
+</view>
+<!-- 详情类楼层 -->
+<!-- 外层循环 -->
+<block wx:for="{{ fashions }}" wx:key="name">
+  <view class="floor-title">
+    <image mode="widthFix" src="{{ item.floor_title.image_src }}" class="floor-title-img "></image>
+  </view>
+  <view class="floor-body">
+    <!-- 里层循环 -->
+    <block wx:for="{{ item.product_list }}" wx:key="image_src" wx:for-item="item2">
+      <navigator open-type="{{ item2.open_type }}" url="{{ item2.navigator_url }}">
+        <image style="width:{{ item2.image_width }}rpx;" src="{{ item2.image_src }}"></image>
+      </navigator>
+    </block>
+  </view>
+</block>
+<view class="to-top" bind:tap="toTop">
+  <view class="iconfont iconrising"></view>
+</view>
