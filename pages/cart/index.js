@@ -18,7 +18,7 @@ Page({
       cartList: wx.getStorageSync('cartList') || {}
     })
     //重新计算价格
-    // this.computedCartData();
+    this.computedCartData();
   },
   //封装一个计算总价格的函数
   computedCartData() {
