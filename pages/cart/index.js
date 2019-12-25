@@ -1,8 +1,4 @@
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     address: {},
     cartList: {},
@@ -21,12 +17,16 @@ Page({
     this.computedCartData();
   },
   //计数器加减号事件
-  changeCount(){
+  changeCount(event) {
     // 解构事件的参数
-    const { index, number } = event.currentTarget.dataset;
+    const {
+      index,
+      number
+    } = event.currentTarget.dataset;
     // 解构购物车数组
-    const { cartList } = this.data;
-
+    const {
+      cartList
+    } = this.data;
     // 如果点击的是减号，并且当前数量为 1 
     if (number === -1 && cartList[index].goods_count === 1) {
       // 模态提示框，有两个按钮
@@ -40,31 +40,35 @@ Page({
         // PS: 模态提示框，不管点击确定还是取消都触发 success
         success: (result) => {
           // confirm 为 true，表示点击了确定
-          if(result.confirm){
+          if (result.confirm) {
             // console.log('点了确定');
-            cartList.splice(index,1);
+            cartList.splice(index, 1);
             // 重新计算总价格，全选状态，并更新 cartList 页面数据 和 cartList 本地存储数据
             this.computedCartData();
           }
           // cancel 为 true，表示点击了取消
-          else if(result.cancel){
+          else if (result.cancel) {
             console.log('点了取消');
           }
         }
       });
-    }else{
+    } else {
       // 当前商品累加
       cartList[index].goods_count += number;
       // 重新计算总价格，全选状态，并更新 cartList 页面数据 和 cartList 本地存储数据
       this.computedCartData();
     }
   },
-   // 列表项的选择按钮点击
-   changeCheck(event) {
+  // 列表项的选择按钮点击
+  changeCheck(event) {
     // 解构事件的参数
-    const { index } = event.currentTarget.dataset;
+    const {
+      index
+    } = event.currentTarget.dataset;
     // 解构购物车数组
-    const { cartList } = this.data;
+    const {
+      cartList
+    } = this.data;
 
     // 通过索引值找到数据，把自己取反
     cartList[index].goods_selected = !cartList[index].goods_selected;
@@ -73,21 +77,24 @@ Page({
     this.computedCartData();
   },
   // 全选按钮点击事件
-  changeCheckAll(){
+  changeCheckAll() {
 
-    let { checkAll, cartList } = this.data;
+    let {
+      checkAll,
+      cartList
+    } = this.data;
 
     checkAll = !checkAll;
 
     // 购物车列表的选中状态和全选保持一致
-    cartList.forEach(v=>{
+    cartList.forEach(v => {
       v.goods_selected = checkAll
     });
 
     // 重新计算总价格，全选状态，并更新 cartList 页面数据 和 cartList 本地存储数据
     this.computedCartData();
   },
-  
+
   //封装一个计算总价格的函数
   computedCartData() {
     //解构data中的购物车数据
